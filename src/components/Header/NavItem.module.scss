@@ -1,0 +1,17 @@
+.navItem {
+  margin: 0 8px;
+
+  &.active {
+    color: blue;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

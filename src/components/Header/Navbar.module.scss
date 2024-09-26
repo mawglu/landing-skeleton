@@ -1,10 +1,47 @@
+@use "src/styles/mixins/breakpoints" as *;
+
 .navBar {
   display: flex;
   position: relative;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navBarMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-in-out, opacity 0.15s ease-out;
+  visibility: hidden;
+
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  top: 50px;
+
+  &.active {
+    max-height: 100vh;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.35s ease-in-out, opacity 0.25s ease-in;
+  }
+
+  @include md {
+    display: flex;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    max-height: none;
+    background-color: transparent;
+    transition: none;
+  }
 }
 
 .navBrand {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

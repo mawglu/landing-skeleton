@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import NavItem from "./NavItem";
 import NavToggle from "./NavToggle";
+import cn from "classnames";
 import styles from "./Navbar.module.scss";
 
 interface NavItemType {
@@ -51,21 +52,24 @@ const NavBar: React.FC = () => {
 
     return (
         <nav className={styles.navBar} aria-label="Навигация по сайту">
+
             <div className={styles.navBrand}>Navbar</div>
 
             <NavToggle onClick={handleToggleNav} isActive={isNavOpen}/>
 
-            <ul className={styles.navBarMenu}>
+            <ul className={cn(styles.navBarMenu, {
+                [styles.active]: isNavOpen,
+            })}>
                 {navItems.map(item =>
-                    <NavItem
-                        key={item.id}
-                        title={item.title}
-                        link={item.link}
-                        disabled={item.disabled}
-                        isActive={activeLinkId === item.id}
-                        onClick={() => handleLinkClick(item.id)}
+                    <NavItem key={item.id}
+                             {...item}
+                             isActive={activeLinkId === item.id}
+                             onClick={() => handleLinkClick(item.id)}
                     />
                 )}
+                <button>to the b2b</button>
+                <input/>
+                <button>search</button>
             </ul>
         </nav>
     )

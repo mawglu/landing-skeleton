@@ -1,12 +1,10 @@
 import React from 'react';
-import NavBar from "./components/Header/NavBar";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <NavBar/>
-            </header>
+            <LandingPage/>
         </div>
     );
 }

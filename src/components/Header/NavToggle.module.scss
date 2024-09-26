@@ -1,3 +1,5 @@
+@use "src/styles/mixins/breakpoints" as *;
+
 @mixin transform($rotation) {
   transform: rotate($rotation);
 }
@@ -10,14 +12,16 @@
   width: 30px;
   height: 22.5px;
   position: relative;
-  margin: 25px auto;
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
-
+  display: flex;
   @include transform(0deg);
   @include transition(.5s);
+  @include md {
+    display: none;
+  }
 
   span {
     display: block;
