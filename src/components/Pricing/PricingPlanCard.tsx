@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./PricingPlanCard.module.scss";
-import {useTariff} from "./TariffContext";
+import {useTariff} from "../../context/TariffContext";
 
 interface PricingPlanCardProps {
-    id: string | number;
+    id: string;
     title: string;
     description: string;
     features: string[];

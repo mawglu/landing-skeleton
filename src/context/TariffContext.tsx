@@ -1,14 +1,14 @@
 import React, {useState, createContext, useContext} from "react";
 
 interface TariffContextType {
-    selectedTariffId: string | number | null;
-    setSelectedTariffId: (id: string | number) => void;
+    selectedTariffId: string | null;
+    setSelectedTariffId: (id: string) => void;
 }
 
 const TariffContext = createContext<TariffContextType | undefined>(undefined);
 
 export const TariffProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
-    const [selectedTariffId, setSelectedTariffId] = useState<string | number | null>(null);
+    const [selectedTariffId, setSelectedTariffId] = useState<string | null>(null);
 
     return (
         <TariffContext.Provider value={{selectedTariffId, setSelectedTariffId}}>
